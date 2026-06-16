@@ -9,7 +9,7 @@ Official website for the French-speaking Catholic community of Colorado.
 ## 📁 Project Structure
 
 ```
-ccfc-website/
+CCFC/
 ├── index.html          ← Main homepage (edit this for content changes)
 ├── assets/
 │   ├── css/            ← Stylesheets (if split out later)
