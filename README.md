@@ -49,27 +49,6 @@ CCFC/
 
 ---
 
-## 🚀 GitHub Pages Setup (One-time, done by repo owner)
-
-1. Go to your repo on GitHub
-2. Click **Settings** → **Pages** (left sidebar)
-3. Under "Source" select **Deploy from a branch**
-4. Choose **main** branch → **/ (root)** folder
-5. Click **Save**
-6. Your site will be live at `https://YOUR-USERNAME.github.io/ccfc-website`
-
----
-
-## 👥 Adding a Collaborator
-
-1. Go to repo **Settings** → **Collaborators**
-2. Click **"Add people"**
-3. Enter their GitHub username or email
-4. They accept the invite via email
-5. They can now edit files directly
-
----
-
 ## 📬 Contact
 
 For questions about the site, contact the web team via the community email.
