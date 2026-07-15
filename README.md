@@ -1,15 +1,15 @@
-# CCFC — Communauté Catholique Charismatique Francophone du Colorado
+# CCCFC — Communauté Catholique Charismatique Francophone du Colorado
 
 Official website for the French-speaking Catholic community of Colorado.
 
-🌐 **Live site:** [[https://ochoumared.github.io/CCFC/](https://ochoumared.github.io/CCFC/)]
+🌐 **Live site:** [[https://ochoumared.github.io/CCCFC/](https://ochoumared.github.io/CCCFC/)]
 
 ---
 
 ## 📁 Project Structure
 
 ```
-CCFC/
+CCCFC/
 ├── index.html          ← Main homepage (edit this for content changes)
 ├── assets/
 │   ├── css/            ← Stylesheets (if split out later)
