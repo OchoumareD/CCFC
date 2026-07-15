@@ -1,4 +1,4 @@
-# CCFC — Communauté Catholique Francophone du Colorado
+# CCFC — Communauté Catholique Charismatique Francophone du Colorado
 
 Official website for the French-speaking Catholic community of Colorado.
 
