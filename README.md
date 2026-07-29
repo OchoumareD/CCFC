@@ -2,7 +2,7 @@
 
 Official website for the French-speaking Catholic community of Colorado.
 
-🌐 **Live site:** [[https://ochoumared.github.io/CCCFC/](https://ochoumared.github.io/CCCFC/)]
+🌐 **Live site:** [[https://ochoumared.github.io/CCFC/](https://ochoumared.github.io/CCFC/)]
 
 ---
 
