@@ -3,10 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
   <title>CCCFC — Communauté Catholique Charismatique Francophone du Colorado</title>
+  <meta name="description" content="Communauté Catholique Charismatique Francophone du Colorado — messes en français, activités, soutien spirituel et vie communautaire à Denver et Lakewood." />
+  <meta name="keywords" content="catholique, francophone, Colorado, Denver, messe en français, communauté, CCCFC" />
+
+  <!-- Social Sharing -->
+  <meta property="og:title" content="CCCFC — Communauté Catholique Francophone du Colorado" />
+  <meta property="og:description" content="Messes en français, activités communautaires et vie de foi pour les francophones du Colorado." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ochoumared.github.io/CCCFC/" />
+  <meta property="og:image" content="assets/images/cover.jpg" />
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
   <style>
+    /* RESET */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -30,7 +45,7 @@
       line-height: 1.6;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: sticky;
       top: 0;
@@ -51,10 +66,7 @@
       text-decoration: none;
     }
 
-    .nav-cross {
-      font-size: 1.4rem;
-      color: var(--gold);
-    }
+    .nav-cross { font-size: 1.4rem; color: var(--gold); }
 
     .nav-title {
       font-family: 'Cormorant Garamond', serif;
@@ -64,9 +76,7 @@
       letter-spacing: 0.02em;
     }
 
-    .nav-title span {
-      color: var(--gold);
-    }
+    .nav-title span { color: var(--gold); }
 
     .nav-links {
       display: flex;
@@ -94,9 +104,9 @@
       font-weight: 600 !important;
     }
 
-    .nav-cta:hover { background: var(--gold-light); color: var(--navy) !important; }
+    .nav-cta:hover { background: var(--gold-light); }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero {
       background: var(--navy);
       min-height: 88vh;
@@ -108,22 +118,6 @@
       padding: 4rem 2rem;
       position: relative;
       overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 50% 60%, rgba(201,168,76,0.08) 0%, transparent 70%),
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 59px,
-          rgba(255,255,255,0.025) 59px,
-          rgba(255,255,255,0.025) 60px
-        );
-      pointer-events: none;
     }
 
     .hero-eyebrow {
@@ -145,16 +139,11 @@
       margin-bottom: 0.5rem;
     }
 
-    .hero h1 em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
+    .hero h1 em { color: var(--gold-light); }
 
-    /* SIGNATURE: bilingual tagline that flips on hover */
     .hero-tagline-wrap {
       margin: 1.75rem 0 2.5rem;
       perspective: 600px;
-      cursor: default;
     }
 
     .hero-tagline {
@@ -172,9 +161,7 @@
       line-height: 2em;
     }
 
-    .hero-tagline-wrap:hover .hero-tagline {
-      transform: rotateX(180deg);
-    }
+    .hero-tagline-wrap:hover .hero-tagline { transform: rotateX(180deg); }
 
     .hero-tagline .front,
     .hero-tagline .back {
@@ -187,16 +174,7 @@
       white-space: nowrap;
     }
 
-    .hero-tagline .back {
-      transform: rotateX(180deg);
-      color: var(--gold);
-    }
-
-    .hero-tagline span + span::before {
-      content: ' · ';
-      color: var(--gold);
-      margin: 0 0.4em;
-    }
+    .hero-tagline .back { transform: rotateX(180deg); color: var(--gold); }
 
     .hero-desc {
       font-size: 1rem;
@@ -253,31 +231,13 @@
       bottom: 2rem;
       left: 50%;
       transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
       color: rgba(255,255,255,0.3);
       font-size: 0.7rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
     }
 
-    .hero-scroll::after {
-      content: '';
-      display: block;
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent);
-      animation: scrollLine 2s ease-in-out infinite;
-    }
-
-    @keyframes scrollLine {
-      0%, 100% { opacity: 0.4; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(1.1); }
-    }
-
-    /* ── STATS BAR ── */
+    /* STATS BAR */
     .stats-bar {
       background: var(--cream);
       border-bottom: 1px solid var(--border);
@@ -298,7 +258,6 @@
       font-size: 2rem;
       font-weight: 600;
       color: var(--navy);
-      display: block;
     }
 
     .stat-label {
@@ -309,9 +268,8 @@
       margin-top: 0.2rem;
     }
 
-    /* ── SECTIONS ── */
+    /* SECTIONS */
     section { padding: 5rem 2rem; }
-
     .container { max-width: 1100px; margin: 0 auto; }
 
     .section-eyebrow {
@@ -346,7 +304,7 @@
       margin: 1.5rem 0;
     }
 
-    /* ── ABOUT ── */
+    /* ABOUT */
     #about { background: var(--warm-white); }
 
     .about-grid {
@@ -357,14 +315,10 @@
       margin-top: 3rem;
     }
 
-    .about-image-block {
-      position: relative;
-    }
-
     .about-image-placeholder {
       width: 100%;
       aspect-ratio: 4/3;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
       border-radius: 2px;
       display: flex;
       flex-direction: column;
@@ -424,7 +378,7 @@
       line-height: 1.6;
     }
 
-    /* ── MASS SCHEDULE ── */
+    /* MASS */
     #mass { background: var(--navy); }
 
     #mass .section-title { color: white; }
@@ -476,12 +430,9 @@
       border-top: 1px solid rgba(255,255,255,0.1);
       font-size: 0.8rem;
       color: rgba(255,255,255,0.4);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.4rem;
     }
 
-    /* ── ACTIVITIES ── */
+    /* ACTIVITIES */
     #activities { background: var(--cream); }
 
     .activities-grid {
@@ -498,10 +449,7 @@
       border-radius: 2px;
     }
 
-    .activity-icon {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
+    .activity-icon { font-size: 1.75rem; margin-bottom: 1rem; }
 
     .activity-title {
       font-family: 'Cormorant Garamond', serif;
@@ -517,7 +465,7 @@
       line-height: 1.65;
     }
 
-    /* ── QUOTE ── */
+    /* QUOTE */
     .quote-band {
       background: var(--gold);
       padding: 3.5rem 2rem;
@@ -545,7 +493,7 @@
       opacity: 0.7;
     }
 
-    /* ── CONNECT ── */
+    /* CONNECT */
     #connect { background: var(--warm-white); }
 
     .connect-grid {
@@ -607,444 +555,4 @@
 
     .newsletter-row input {
       flex: 1;
-      padding: 0.6rem 1rem;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.07);
-      color: white;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      border-radius: 2px;
-      outline: none;
-    }
-
-    .newsletter-row input::placeholder { color: rgba(255,255,255,0.3); }
-
-    .newsletter-row input:focus { border-color: var(--gold); }
-
-    /* ── DIOCESE BAR ── */
-    .diocese-bar {
-      background: var(--cream);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 1.5rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-
-    .diocese-bar a {
-      color: var(--navy);
-      font-weight: 500;
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      padding: 3rem 2rem 1.5rem;
-      color: rgba(255,255,255,0.5);
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 3rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 0.75rem;
-    }
-
-    .footer-brand span { color: var(--gold); }
-
-    .footer-desc {
-      font-size: 0.82rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.4);
-    }
-
-    .footer-col h4 {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .footer-col ul { list-style: none; }
-
-    .footer-col li { margin-bottom: 0.5rem; }
-
-    .footer-col a {
-      font-size: 0.83rem;
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-col a:hover { color: white; }
-
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 1.25rem auto 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.25);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .stats-bar { grid-template-columns: repeat(2, 1fr); }
-      .about-grid, .connect-grid { grid-template-columns: 1fr; }
-      .about-pull { display: none; }
-      .mass-cards, .activities-grid { grid-template-columns: 1fr; }
-      .pillars { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
-    }
-  </style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="nav-brand">
-    <span class="nav-cross">✝</span>
-    <span class="nav-title"><span>CCCFC</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">À propos</a></li>
-    <li><a href="#mass">Messes</a></li>
-    <li><a href="#activities">Activités</a></li>
-    <li><a href="#connect">Contact</a></li>
-    <li><a href="#connect" class="nav-cta">Rejoindre</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <p class="hero-eyebrow">Denver, Colorado · Archidiocèse de Denver</p>
-  <h1>Une famille catholique<br /><em>francophone</em> au Colorado</h1>
-
-  <!-- SIGNATURE ELEMENT: flip tagline -->
-  <div class="hero-tagline-wrap" title="Hover to translate">
-    <div class="hero-tagline">
-      <div class="front">
-        <span>Foi</span><span>Famille</span><span>Communauté</span>
-      </div>
-      <div class="back">
-        <span>Faith</span><span>Family</span><span>Community</span>
-      </div>
-    </div>
-  </div>
-
-  <p class="hero-desc">
-    La Communauté Catholique Charismatique Francophone du Colorado (CCFC) est un espace de foi et d'appartenance
-    pour les catholiques francophones de l'État de Denver Colorado - Expatriés, Visiteurs, Immigrant(e)s, et ami(e)s, frères et soeurs de la langue française sont cordialement les bienvenues.
-  </p>
-
-  <div class="hero-actions">
-    <a href="#mass" class="btn-primary">Horaires des messes</a>
-    <a href="#connect" class="btn-outline">Nous rejoindre</a>
-  </div>
-
-  <div class="hero-scroll">Défiler</div>
-</section>
-
-<!-- STATS BAR -->
-<div class="stats-bar">
-  <div class="stat">
-    <span class="stat-num">Dim.</span>
-    <span class="stat-label">Messe hebdomadaire</span>
-  </div>
-  <div class="stat">
-    <span class="stat-num">13h30</span>
-    <span class="stat-label">Heure de la messe</span>
-  </div>
-  <div class="stat">
-    <span class="stat-num">Mary<br/>Immaculate</span>
-    <span class="stat-label">Église principale</span>
-  </div>
-  <div class="stat">
-    <span class="stat-num">CO</span>
-    <span class="stat-label">Toute la communauté</span>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-image-block">
-        <div class="about-image-placeholder">
-          <span class="cross-big">✝</span>
-          <span>Photo de communauté</span>
-          <span style="font-size:0.7rem; opacity:0.5;">(à ajouter)</span>
-        </div>
-        <div class="about-pull">
-          « Venez célébrer<br />avec nous chaque dimanche »
-        </div>
-      </div>
-      <div>
-        <p class="section-eyebrow">Qui sommes-nous</p>
-        <h2 class="section-title">Le foyer spirituel<br />des catholiques francophones</h2>
-        <div class="divider"></div>
-        <p class="section-sub">
-          La CCCFC accueille les catholiques francophones du Colorado — qu'ils soient
-          expatriés français, belges, québécois, africains, ou tout simplement amoureux de la langue française.
-          Nous célébrons la messe, partageons notre foi, et maintenons vivantes nos traditions culturelles.
-        </p>
-        <div class="pillars">
-          <div class="pillar">
-            <div class="pillar-title">✝ Foi</div>
-            <p>Messes célébrées en français dans la tradition catholique, chaque dimanche.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-title">🤝 Accueil</div>
-            <p>Un espace chaleureux pour les nouveaux arrivants et les familles francophones.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-title">📚 Éducation</div>
-            <p>Formation religieuse et catéchèse pour enfants et adultes.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-title">🌍 Culture</div>
-            <p>Préserver et partager la culture et la langue française dans notre foi.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MASS SCHEDULE -->
-<section id="mass">
-  <div class="container">
-    <p class="section-eyebrow" style="color:var(--gold-light)">Horaires</p>
-    <h2 class="section-title">Venez prier avec nous</h2>
-    <p class="section-sub">
-      Nos messes se tiennent chaque premier dimanche du chaque mois. Vous y etes tous les bienvenus.
-    </p>
-    <div class="mass-cards">
-      <div class="mass-card">
-        <div class="mass-card-day">Chaque Dimanche</div>
-        <div class="mass-card-time">14h00 MDT</div>
-        <div class="mass-card-desc">
-          Messe dominicale en français. Ouverte à tous les catholiques francophones et leurs familles.
-        </div>
-        <div class="mass-card-location">
-          📍 our lady of fatima catholic church, Lakewood CO 
-              1985 Miller St Lakewood CO 
-        </div>
-      </div>
-      <div class="mass-card">
-        <div class="mass-card-day">Rassemblements</div>
-        <div class="mass-card-time">Réguliers</div>
-        <div class="mass-card-desc">
-          Rencontres communautaires, partage de repas, et événements culturels tout au long de l'année.
-        </div>
-        <div class="mass-card-location">
-          📍 Lieux variés — voir le calendrier
-        </div>
-      </div>
-      <div class="mass-card">
-        <div class="mass-card-day">Fêtes & Solennités</div>
-        <div class="mass-card-time">Calendrier</div>
-        <div class="mass-card-desc">
-          Célébrations spéciales pour Noël, Pâques, l'Assomption, et autres fêtes liturgiques importantes.
-        </div>
-        <div class="mass-card-location">
-          📅 Consultez notre calendrier
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ACTIVITIES -->
-<section id="activities">
-  <div class="container">
-    <p class="section-eyebrow">Vie communautaire</p>
-    <h2 class="section-title">Plus que la messe du dimanche</h2>
-    <div class="divider"></div>
-    <p class="section-sub">
-      La CCCFC est une communauté vivante qui se retrouve au-delà des dimanches.
-    </p>
-    <div class="activities-grid">
-      <div class="activity-card">
-        <div class="activity-icon">🙏</div>
-        <div class="activity-title">Soutien spirituel</div>
-        <p class="activity-desc">
-          Accompagnement pastoral pour les Familles, les Malades, Baptemes, Veuillez de Prieres et les Personnes en Deuil.
-          La foi partagée en français, dans votre langue.
-        </p>
-      </div>
-      <div class="activity-card">
-        <div class="activity-icon">👨‍👩‍👧‍👦</div>
-        <div class="activity-title">Vie de famille</div>
-        <p class="activity-desc">
-          Activités pour les enfants, les jeunes, et les familles, retraites, Conventions
-          et sorties communautaires.
-        </p>
-      </div>
-      <div class="activity-card">
-        <div class="activity-icon">🎉</div>
-        <div class="activity-title">Événements culturels</div>
-        <p class="activity-desc">
-          Repas partagés, célébrations de fêtes nationales, et rencontres sociales pour
-          les francophones du Colorado.
-        </p>
-      </div>
-      <div class="activity-card">
-        <div class="activity-icon">📖</div>
-        <div class="activity-title">Formation & Catéchèse</div>
-        <p class="activity-desc">
-          Enseignement de la foi catholique en français pour enfants et adultes.
-          Première communion, confirmation, et parcours d'adultes.
-        </p>
-      </div>
-      <div class="activity-card">
-        <div class="activity-icon">🤲</div>
-        <div class="activity-title">Aide aux nouveaux arrivants</div>
-        <p class="activity-desc">
-          Accueil des expatriés et immigrants francophones. Orientation, entraide,
-          et intégration dans la vie catholique du Colorado.
-        </p>
-      </div>
-      <div class="activity-card">
-        <div class="activity-icon">📣</div>
-        <div class="activity-title">Réseau francophone</div>
-        <p class="activity-desc">
-          Connexions avec d'autres communautés francophones et organisations catholiques
-          à Denver et dans tout le Colorado.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- QUOTE BAND -->
-<div class="quote-band">
-  <p class="quote-text">
-    « Là où deux ou trois sont réunis en mon nom, je suis au milieu d'eux. Adit le Seigneur Jesus-Christ Fils du Dieu Vivant »
-  </p>
-  <p class="quote-attr">— Matthieu 18:20</p>
-</div>
-
-<!-- DIOCESE CONNECTION -->
-<div class="diocese-bar">
-  <span>✝</span>
-  <span>La CCCFC opère sous la bénédiction de l'</span>
-  <a href="https://www.archden.org" target="_blank">Archidiocèse de Denver</a>
-  <span>·</span>
-  <a href="https://www.cocatholic.org/" target="_blank">Archdiocese of Denver</a>
-</div>
-
-<!-- CONNECT -->
-<section id="connect">
-  <div class="container">
-    <p class="section-eyebrow">Contact & Rejoindre</p>
-    <h2 class="section-title">Venez nous rejoindre</h2>
-    <div class="divider"></div>
-    <div class="connect-grid">
-      <div>
-        <div class="info-block">
-          <div class="info-label">Lieu principal</div>
-          <div class="info-value"> Our Lady of Fatima Catholic Church<br />Lakewood, Colorado</div>
-        </div>
-        <div class="info-block">
-          <div class="info-label">Messe dominicale</div>
-          <div class="info-value">Chaque Premier dimanche du Mois à 14h00</div>
-        </div>
-        <div class="info-block">
-          <div class="info-label">Langue</div>
-          <div class="info-value">Français (tous niveaux bienvenus)</div>
-        </div>
-        <div class="info-block">
-          <div class="info-label">Email</div>
-          <div class="info-value"><a href="mailto:contact@ccfc-colorado.org">contact@ccfc-colorado.org</a></div>
-        </div>
-        <div class="info-block">
-          <div class="info-label">Réseaux sociaux</div>
-          <div class="info-value">
-            <a href="#">Facebook</a> · <a href="#">Instagram</a>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="join-card">
-          <h3>Rejoindre notre communauté</h3>
-          <p>
-            Que vous soyez de passage ou établi au Colorado, vous êtes les bienvenus
-            à chaque messe. Inscrivez-vous pour recevoir nos actualités et invitations.
-          </p>
-          <div>
-            <div class="info-label" style="color: var(--gold-light); font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.4rem;">Restez informé(e)</div>
-            <div class="newsletter-row">
-              <input type="email" placeholder="Votre adresse email" />
-              <a href="#" class="btn-primary" style="white-space:nowrap;">S'inscrire</a>
-            </div>
-            <p style="font-size:0.72rem; color:rgba(255,255,255,0.3); margin-top:0.6rem;">
-              Pas de spam. Désabonnement à tout moment.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-brand">✝ <span>CCFC</span> Colorado</div>
-      <p class="footer-desc">
-        La Communauté Catholique Charismatique Francophone du Colorado — un foyer spirituel
-        pour les catholiques francophones de la région de Denver et autres regoins et de tout Colorado se reunisse.
-      </p>
-    </div>
-    <div class="footer-col">
-      <h4>Navigation</h4>
-      <ul>
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#mass">Messes & Horaires</a></li>
-        <li><a href="#activities">Activités</a></li>
-        <li><a href="#connect">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Liens utiles</h4>
-      <ul>
-        <li><a href="https://www.cocatholic.org/" target="_blank">Archidiocèse de Denver</a></li>
-        <li><a href="#">Calendrier liturgique</a></li>
-        <li><a href="#">Nous rejoindre</a></li>
-        <li><a href="#">Newsletter</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Communauté Catholique Charismatique Francophone du Colorado (CCCFC)</span>
-    <span>Foi · Famille · Communauté</span>
-  </div>
-</footer>
-
-</body>
-</html>
+      padding: 0.
