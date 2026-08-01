@@ -683,6 +683,33 @@
 
     .newsletter-row input:focus { border-color: var(--gold); }
 
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.65rem 1rem;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.07);
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      border-radius: 2px;
+      outline: none;
+      resize: vertical;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.3); }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--gold); }
+
     /* ── DIOCESE BAR ── */
     .diocese-bar {
       background: var(--cream);
@@ -1146,20 +1173,15 @@
       </div>
       <div>
         <div class="join-card">
-          <h3>Rejoindre notre communauté</h3>
+          <h3>Nous contacter</h3>
           <p>
-            Que vous soyez de passage ou de passage dans l'etat du Colorado, vous êtes les bienvenus
-            à chaque messe. Inscrivez-vous pour recevoir nos actualités et invitations.
+            Vous avez une question ou souhaitez en savoir plus ? Envoyez-nous un message et nous vous répondrons dans les plus brefs délais.
           </p>
-          <div>
-            <div class="info-label" style="color: var(--gold-light); font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.4rem;">Restez informé(e)</div>
-            <div class="newsletter-row">
-              <input type="email" placeholder="Votre adresse email" />
-              <a href="#" class="btn-primary" style="white-space:nowrap;">S'inscrire</a>
-            </div>
-            <p style="font-size:0.72rem; color:rgba(255,255,255,0.3); margin-top:0.6rem;">
-              Pas de spam. Désabonnement à tout moment.
-            </p>
+          <div class="contact-form">
+            <input type="text" id="contact-name" placeholder="Votre nom" />
+            <input type="email" id="contact-email" placeholder="Votre adresse email" />
+            <textarea id="contact-message" placeholder="Votre message..." rows="4"></textarea>
+            <button class="btn-primary" style="width:100%; margin-top:0.5rem;" onclick="sendEmail()">Envoyer le message</button>
           </div>
         </div>
       </div>
@@ -1226,8 +1248,20 @@
   // Auto-advance every 4 seconds
   setInterval(() => moveSlide(1), 4000);
 
-  // Recalculate on resize
-  window.addEventListener('resize', updateSlider);
+  function sendEmail() {
+    const name = document.getElementById('contact-name').value.trim();
+    const email = document.getElementById('contact-email').value.trim();
+    const message = document.getElementById('contact-message').value.trim();
+
+    if (!name || !email || !message) {
+      alert('Veuillez remplir tous les champs.');
+      return;
+    }
+
+    const subject = encodeURIComponent(`Message de ${name} via le site CCCFC`);
+    const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    window.location.href = `mailto:contact@cccfcolorado.org?subject=${subject}&body=${body}`;
+  }
 </script>
 </body>
 </html>
