@@ -100,7 +100,7 @@
     /* ── HERO LAYOUT ── */
     .hero-layout {
       display: grid;
-      grid-template-columns: 1fr 1.8fr 1fr;
+      grid-template-columns: 0.8fr 2fr 0.8fr;
       align-items: stretch;
       width: 100%;
       height: 100%;
@@ -114,8 +114,9 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 3rem 1.5rem;
       z-index: 1;
+      overflow: visible;
     }
 
     .hero-side-img {
@@ -123,12 +124,16 @@
       height: 100%;
       overflow: hidden;
       opacity: 0.9;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .hero-side-img img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
     }
 
