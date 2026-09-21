@@ -97,51 +97,18 @@
 
     .nav-cta:hover { background: var(--gold-light); color: var(--navy) !important; }
 
-    /* ── HERO LAYOUT ── */
-    .hero-layout {
-      display: grid;
-      grid-template-columns: 0.8fr 2fr 0.8fr;
-      align-items: stretch;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      inset: 0;
-    }
-
-    .hero-center {
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      min-height: 88vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 3rem 1.5rem;
-      z-index: 1;
-      overflow: visible;
-    }
-
-    .hero-side-img {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      opacity: 0.9;
-    }
-
-    .hero-side-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-
-    /* ── HERO ── */
-    .hero {
-      background: var(--navy);
-      min-height: 88vh;
+      padding: 4rem 2rem;
       position: relative;
       overflow: hidden;
-      display: block;
-      padding: 0;
     }
 
     .hero::before {
@@ -283,7 +250,10 @@
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
 
     .hero-scroll {
-      position: relative;
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -292,7 +262,6 @@
       font-size: 0.7rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      margin-top: 1.5rem;
     }
 
     .hero-scroll::after {
@@ -381,49 +350,19 @@
     /* ── ABOUT ── */
     #about { background: var(--warm-white); }
 
-    .about-top-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-
-    .about-top-img {
-      width: 100%;
-      height: 300px;
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .about-top-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
     .about-grid {
       display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 2.5rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
       align-items: center;
+      margin-top: 3rem;
     }
 
     .about-image-block {
       position: relative;
-      width: 100%;
-      max-height: 650px;
-      overflow: hidden;
     }
 
-    .slider {
-      position: relative;
-      width: 100%;
-      height: 650px;
-      border-radius: 2px;
-      overflow: hidden;
-      contain: strict;
-    }
+    .about-image-placeholder {
       width: 100%;
       aspect-ratio: 4/3;
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
@@ -579,6 +518,164 @@
       line-height: 1.65;
     }
 
+    /* ── BISHOP FLIP CARD ── */
+
+    .bishop-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .bishop-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .bishop-popup {
+      position: relative;
+      width: 380px;
+      height: 520px;
+    }
+
+    .bishop-close {
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      z-index: 10;
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .flip-card {
+      width: 100%;
+      height: 100%;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .flip-card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.7s ease;
+      border-radius: 4px;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      inset: 0;
+      border-radius: 4px;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .flip-card-front {
+      background: var(--navy);
+      border: 2px solid var(--gold);
+    }
+
+    .flip-card-back {
+      background: var(--cream);
+      border: 2px solid var(--gold);
+      transform: rotateY(180deg);
+      padding: 2.5rem;
+    }
+
+    .bishop-photo-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex: 1;
+    }
+
+    .bishop-cross {
+      font-size: 3.5rem;
+      color: var(--gold);
+      opacity: 0.6;
+    }
+
+    .bishop-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .bishop-sublabel {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .flip-hint {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      padding: 1rem;
+    }
+
+    .flip-card-back .flip-hint {
+      color: var(--text-muted);
+    }
+
+    .bishop-passage {
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .passage-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .passage-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.7;
+    }
+
+    .passage-attr {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
     /* ── QUOTE ── */
     .quote-band {
       background: var(--gold);
@@ -683,33 +780,6 @@
 
     .newsletter-row input:focus { border-color: var(--gold); }
 
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.65rem 1rem;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.07);
-      color: white;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      border-radius: 2px;
-      outline: none;
-      resize: vertical;
-    }
-
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder { color: rgba(255,255,255,0.3); }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus { border-color: var(--gold); }
-
     /* ── DIOCESE BAR ── */
     .diocese-bar {
       background: var(--cream);
@@ -797,75 +867,10 @@
       color: rgba(255,255,255,0.25);
     }
 
-    /* ── SLIDER ── */
-    .slider-track {
-      display: flex;
-      height: 100%;
-      width: 100%;
-      transition: transform 0.5s ease;
-    }
-
-    .slider-track img {
-      width: 100%;
-      height: 100%;
-      min-width: 100%;
-      max-width: 100%;
-      object-fit: cover;
-      flex-shrink: 0;
-      flex-grow: 0;
-      display: block;
-    }
-
-    .slider-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.4);
-      color: white;
-      border: none;
-      width: 40px;
-      height: 40px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-      z-index: 10;
-    }
-
-    .slider-btn:hover { background: rgba(201,168,76,0.8); }
-    .slider-btn.prev { left: 0.75rem; }
-    .slider-btn.next { right: 0.75rem; }
-
-    .slider-dots {
-      position: absolute;
-      bottom: 0.75rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 0.4rem;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.5);
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-
-    .dot.active { background: var(--gold); }
-
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .stats-bar { grid-template-columns: repeat(2, 1fr); }
-      .hero-layout { grid-template-columns: 1fr; position: relative; min-height: 88vh; }
-      .hero-side-img { display: none; }
-      .hero-center { min-height: 88vh; }
       .about-grid, .connect-grid { grid-template-columns: 1fr; }
       .about-pull { display: none; }
       .mass-cards, .activities-grid { grid-template-columns: 1fr; }
@@ -894,46 +899,32 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-layout">
-    <!-- LEFT IMAGE -->
-    <div class="hero-side-img">
-      <img src="assets/images/church.jpeg" alt="Notre Dame" />
-    </div>
+  <p class="hero-eyebrow">Denver, Colorado · Archidiocèse de Denver</p>
+  <h1>Une Communauté Catholique Charismatique<br /><em>francophone</em> au Colorado</h1>
 
-    <!-- CENTER CONTENT -->
-    <div class="hero-center">
-      <p class="hero-eyebrow">Denver, Colorado · Archidiocèse de Denver</p>
-      <h1>Une Communauté Catholique Charismatique<br /><em>francophone</em> au Colorado</h1>
-
-      <div class="hero-tagline-wrap" title="Hover to translate">
-        <div class="hero-tagline">
-          <div class="front">
-            <span>Foi</span><span>Famille</span><span>Communauté</span>
-          </div>
-          <div class="back">
-            <span>Faith</span><span>Family</span><span>Community</span>
-          </div>
-        </div>
+  <!-- SIGNATURE ELEMENT: flip tagline -->
+  <div class="hero-tagline-wrap" title="Hover to translate">
+    <div class="hero-tagline">
+      <div class="front">
+        <span>Foi</span><span>Famille</span><span>Communauté</span>
       </div>
-
-      <p class="hero-desc">
-        Communauté Catholique Charismatique Francophone du Colorado (CCCFC) est un espace de foi et d'appartenance
-        pour les catholiques francophones de la région de Denver — expatriés, immigrants, et amis de la langue française.
-      </p>
-
-      <div class="hero-actions">
-        <a href="#mass" class="btn-primary">Horaires des messes</a>
-        <a href="#connect" class="btn-outline">Nous rejoindre</a>
+      <div class="back">
+        <span>Faith</span><span>Family</span><span>Community</span>
       </div>
-
-      <div class="hero-scroll">Défiler</div>
-    </div>
-
-    <!-- RIGHT IMAGE -->
-    <div class="hero-side-img">
-      <img src="assets/images/insideChurch.jpg" alt="Intérieur de l'église" />
     </div>
   </div>
+
+  <p class="hero-desc">
+    Communauté Catholique Charismatique Francophone du Colorado (CCCFC) est un espace de foi et d'appartenance
+    pour les catholiques francophones de la région de Denver — expatriés, immigrants, et amis de la langue française.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#mass" class="btn-primary">Horaires des messes</a>
+    <a href="#connect" class="btn-outline">Nous rejoindre</a>
+  </div>
+
+  <div class="hero-scroll">Défiler</div>
 </section>
 
 <!-- STATS BAR -->
@@ -959,27 +950,12 @@
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
-
-    <!-- Slider left, text right -->
     <div class="about-grid">
       <div class="about-image-block">
-        <div class="slider">
-          <div class="slider-track">
-            <img src="assets/images/cccf-images/IMG_1481.JPG" alt="Communauté CCCFC" />
-            <img src="assets/images/cccf-images/IMG_1514.JPG" alt="Communauté CCCFC" />
-            <img src="assets/images/cccf-images/IMG_1515.JPG" alt="Communauté CCCFC" />
-            <img src="assets/images/cccf-images/IMG_1517.JPG" alt="Communauté CCCFC" />
-            <img src="assets/images/cccf-images/IMG_1553.JPG" alt="Communauté CCCFC" />
-          </div>
-          <button class="slider-btn prev" onclick="moveSlide(-1)">&#8249;</button>
-          <button class="slider-btn next" onclick="moveSlide(1)">&#8250;</button>
-          <div class="slider-dots">
-            <span class="dot active" onclick="goToSlide(0)"></span>
-            <span class="dot" onclick="goToSlide(1)"></span>
-            <span class="dot" onclick="goToSlide(2)"></span>
-            <span class="dot" onclick="goToSlide(3)"></span>
-            <span class="dot" onclick="goToSlide(4)"></span>
-          </div>
+        <div class="about-image-placeholder">
+          <span class="cross-big">✝</span>
+          <span>Photo de communauté</span>
+          <span style="font-size:0.7rem; opacity:0.5;"><img src="cccf-images/your-photo.jpg" /></span>
         </div>
         <div class="about-pull">
           « Venez célébrer<br />avec nous chaque Premier Dimanche du Mois »
@@ -1014,7 +990,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -1123,6 +1098,37 @@
   </div>
 </section>
 
+<!-- BISHOP FLIP CARD POPUP -->
+<div id="bishop-overlay" class="bishop-overlay active" onclick="closeBishopCard(event)">
+  <div class="bishop-popup">
+    <button class="bishop-close" onclick="closeBishopCard()">✕</button>
+    <div class="flip-card" id="flipCard" onclick="flipCard()">
+      <div class="flip-card-inner">
+        <!-- FRONT: Bishop photo -->
+        <div class="flip-card-front">
+          <div class="bishop-photo-placeholder">
+            <span class="bishop-cross">✝</span>
+            <span class="bishop-label">Photo de l'évêque</span>
+            <span class="bishop-sublabel">(à ajouter)</span>
+          </div>
+          <div class="flip-hint">Cliquez pour retourner</div>
+        </div>
+        <!-- BACK: Passage -->
+        <div class="flip-card-back">
+          <div class="bishop-passage">
+            <p class="passage-eyebrow">Message de l'évêque</p>
+            <p class="passage-text">
+              « Le passage ou la citation de l'évêque sera placé ici. Remplacez ce texte par le message que vous souhaitez partager avec la communauté. »
+            </p>
+            <p class="passage-attr">— Nom de l'évêque</p>
+          </div>
+          <div class="flip-hint">Cliquez pour retourner</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- QUOTE BAND -->
 <div class="quote-band">
   <p class="quote-text">
@@ -1173,15 +1179,20 @@
       </div>
       <div>
         <div class="join-card">
-          <h3>Nous contacter</h3>
+          <h3>Rejoindre notre communauté</h3>
           <p>
-            Vous avez une question ou souhaitez en savoir plus ? Envoyez-nous un message et nous vous répondrons dans les plus brefs délais.
+            Que vous soyez de passage ou de passage dans l'etat du Colorado, vous êtes les bienvenus
+            à chaque messe. Inscrivez-vous pour recevoir nos actualités et invitations.
           </p>
-          <div class="contact-form">
-            <input type="text" id="contact-name" placeholder="Votre nom" />
-            <input type="email" id="contact-email" placeholder="Votre adresse email" />
-            <textarea id="contact-message" placeholder="Votre message..." rows="4"></textarea>
-            <button class="btn-primary" style="width:100%; margin-top:0.5rem;" onclick="sendEmail()">Envoyer le message</button>
+          <div>
+            <div class="info-label" style="color: var(--gold-light); font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.4rem;">Restez informé(e)</div>
+            <div class="newsletter-row">
+              <input type="email" placeholder="Votre adresse email" />
+              <a href="#" class="btn-primary" style="white-space:nowrap;">S'inscrire</a>
+            </div>
+            <p style="font-size:0.72rem; color:rgba(255,255,255,0.3); margin-top:0.6rem;">
+              Pas de spam. Désabonnement à tout moment.
+            </p>
           </div>
         </div>
       </div>
@@ -1226,6 +1237,7 @@
 </footer>
 
 <script>
+  // ── SLIDER ──
   let current = 0;
   const total = 5;
 
@@ -1245,9 +1257,22 @@
     updateSlider();
   }
 
-  // Auto-advance every 4 seconds
   setInterval(() => moveSlide(1), 4000);
+  window.addEventListener('resize', updateSlider);
 
+  // ── BISHOP FLIP CARD ──
+  function flipCard() {
+    document.getElementById('flipCard').classList.toggle('flipped');
+  }
+
+  function closeBishopCard(event) {
+    if (!event || event.target === document.getElementById('bishop-overlay')) {
+      document.getElementById('bishop-overlay').classList.remove('active');
+      document.getElementById('flipCard').classList.remove('flipped');
+    }
+  }
+
+  // ── CONTACT FORM ──
   function sendEmail() {
     const name = document.getElementById('contact-name').value.trim();
     const email = document.getElementById('contact-email').value.trim();
