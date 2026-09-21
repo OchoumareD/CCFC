@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CCCFC — Communauté Catholique Charismatique Francophone du Colorado</title>
-  <title>cccf-images</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
@@ -31,7 +30,7 @@
       line-height: 1.6;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     nav {
       position: sticky;
       top: 0;
@@ -44,843 +43,247 @@
       height: 64px;
       border-bottom: 2px solid var(--gold);
     }
-
-    .nav-brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-    }
-
-    .nav-cross {
-      font-size: 1.4rem;
-      color: var(--gold);
-    }
-
-    .nav-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: white;
-      letter-spacing: 0.02em;
-    }
-
-    .nav-title span {
-      color: var(--gold);
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 1.75rem;
-    }
-
-    .nav-links a {
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.8);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
+    .nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .nav-cross { font-size: 1.4rem; color: var(--gold); }
+    .nav-title { font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 1.05rem; color: white; letter-spacing: 0.02em; }
+    .nav-title span { color: var(--gold); }
+    .nav-links { display: flex; list-style: none; gap: 1.75rem; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--gold); }
-
-    .nav-cta {
-      background: var(--gold);
-      color: var(--navy) !important;
-      padding: 0.4rem 1.1rem;
-      border-radius: 2px;
-      font-weight: 600 !important;
-    }
-
+    .nav-cta { background: var(--gold); color: var(--navy) !important; padding: 0.4rem 1.1rem; border-radius: 2px; font-weight: 600 !important; }
     .nav-cta:hover { background: var(--gold-light); color: var(--navy) !important; }
 
-    /* ── HERO ── */
-    .hero {
-      background: var(--navy);
-      min-height: 88vh;
+    /* HERO LAYOUT */
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 0.8fr 2fr 0.8fr;
+      align-items: stretch;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+    }
+    .hero-center {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 3rem 1.5rem;
+      z-index: 1;
+    }
+    .hero-side-img { width: 100%; height: 100%; overflow: hidden; opacity: 0.9; }
+    .hero-side-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+
+    /* HERO */
+    .hero {
+      background: var(--navy);
+      min-height: 88vh;
       position: relative;
       overflow: hidden;
+      display: block;
+      padding: 0;
     }
-
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(ellipse 60% 50% at 50% 60%, rgba(201,168,76,0.08) 0%, transparent 70%),
-        repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 59px,
-          rgba(255,255,255,0.025) 59px,
-          rgba(255,255,255,0.025) 60px
-        );
+      background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(201,168,76,0.08) 0%, transparent 70%),
+        repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.025) 59px, rgba(255,255,255,0.025) 60px);
       pointer-events: none;
+      z-index: 0;
     }
-
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.6rem, 6vw, 5rem);
-      font-weight: 300;
-      color: white;
-      line-height: 1.15;
-      max-width: 780px;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero h1 em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
-
-    /* SIGNATURE: bilingual tagline that flips on hover */
-    .hero-tagline-wrap {
-      margin: 1.75rem 0 2.5rem;
-      perspective: 600px;
-      cursor: default;
-    }
-
-    .hero-tagline {
-      display: inline-block;
-      position: relative;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.65);
-      text-transform: uppercase;
-      transform-style: preserve-3d;
-      transition: transform 0.6s ease;
-      height: 2em;
-      line-height: 2em;
-    }
-
-    .hero-tagline-wrap:hover .hero-tagline {
-      transform: rotateX(180deg);
-    }
-
-    .hero-tagline .front,
-    .hero-tagline .back {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backface-visibility: hidden;
-      white-space: nowrap;
-    }
-
-    .hero-tagline .back {
-      transform: rotateX(180deg);
-      color: var(--gold);
-    }
-
-    .hero-tagline span + span::before {
-      content: ' · ';
-      color: var(--gold);
-      margin: 0 0.4em;
-    }
-
-    .hero-desc {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.6);
-      max-width: 520px;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-      font-weight: 300;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: var(--navy);
-      padding: 0.75rem 1.75rem;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: background 0.2s;
-    }
-
+    .hero-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 300; color: white; line-height: 1.15; max-width: 680px; margin-bottom: 0.5rem; }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-tagline-wrap { margin: 1.75rem 0 2.5rem; perspective: 600px; cursor: default; }
+    .hero-tagline { display: inline-block; position: relative; font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2vw, 1.4rem); font-weight: 400; letter-spacing: 0.12em; color: rgba(255,255,255,0.65); text-transform: uppercase; transform-style: preserve-3d; transition: transform 0.6s ease; height: 2em; line-height: 2em; }
+    .hero-tagline-wrap:hover .hero-tagline { transform: rotateX(180deg); }
+    .hero-tagline .front, .hero-tagline .back { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; backface-visibility: hidden; white-space: nowrap; }
+    .hero-tagline .back { transform: rotateX(180deg); color: var(--gold); }
+    .hero-tagline span + span::before { content: ' · '; color: var(--gold); margin: 0 0.4em; }
+    .hero-desc { font-size: 0.9rem; color: rgba(255,255,255,0.6); max-width: 480px; line-height: 1.7; margin-bottom: 2rem; font-weight: 300; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .btn-primary { background: var(--gold); color: var(--navy); padding: 0.75rem 1.75rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border: none; cursor: pointer; text-decoration: none; border-radius: 2px; transition: background 0.2s; }
     .btn-primary:hover { background: var(--gold-light); }
-
-    .btn-outline {
-      background: transparent;
-      color: white;
-      padding: 0.75rem 1.75rem;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.3);
-      cursor: pointer;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
+    .btn-outline { background: transparent; color: white; padding: 0.75rem 1.75rem; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.3); cursor: pointer; text-decoration: none; border-radius: 2px; transition: border-color 0.2s, color 0.2s; }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-scroll { position: relative; display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: rgba(255,255,255,0.3); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 1.5rem; }
+    .hero-scroll::after { content: ''; display: block; width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent); animation: scrollLine 2s ease-in-out infinite; }
+    @keyframes scrollLine { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 
-    .hero-scroll {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.4rem;
-      color: rgba(255,255,255,0.3);
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-    }
-
-    .hero-scroll::after {
-      content: '';
-      display: block;
-      width: 1px;
-      height: 40px;
-      background: linear-gradient(to bottom, rgba(201,168,76,0.5), transparent);
-      animation: scrollLine 2s ease-in-out infinite;
-    }
-
-    @keyframes scrollLine {
-      0%, 100% { opacity: 0.4; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(1.1); }
-    }
-
-    /* ── STATS BAR ── */
-    .stats-bar {
-      background: var(--cream);
-      border-bottom: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-    }
-
-    .stat {
-      text-align: center;
-      padding: 1.75rem 1rem;
-      border-right: 1px solid var(--border);
-    }
-
+    /* STATS BAR */
+    .stats-bar { background: var(--cream); border-bottom: 1px solid var(--border); display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat { text-align: center; padding: 1.75rem 1rem; border-right: 1px solid var(--border); }
     .stat:last-child { border-right: none; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--navy); display: block; }
+    .stat-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.2rem; }
 
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--navy);
-      display: block;
-    }
-
-    .stat-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-top: 0.2rem;
-    }
-
-    /* ── SECTIONS ── */
+    /* SECTIONS */
     section { padding: 5rem 2rem; }
-
     .container { max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 400; color: var(--navy); line-height: 1.2; margin-bottom: 1rem; }
+    .section-sub { font-size: 1rem; color: var(--text-muted); max-width: 560px; line-height: 1.7; }
+    .divider { width: 48px; height: 2px; background: var(--gold); margin: 1.5rem 0; }
 
-    .section-eyebrow {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-      font-weight: 400;
-      color: var(--navy);
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-
-    .section-sub {
-      font-size: 1rem;
-      color: var(--text-muted);
-      max-width: 560px;
-      line-height: 1.7;
-    }
-
-    .divider {
-      width: 48px;
-      height: 2px;
-      background: var(--gold);
-      margin: 1.5rem 0;
-    }
-
-    /* ── ABOUT ── */
+    /* ABOUT */
     #about { background: var(--warm-white); }
+    .about-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2.5rem; align-items: center; }
+    .about-image-block { position: relative; width: 100%; max-height: 650px; overflow: hidden; }
+    .slider { position: relative; width: 100%; height: 650px; border-radius: 2px; overflow: hidden; contain: strict; }
+    .slider-track { display: flex; height: 100%; width: 100%; transition: transform 0.5s ease; }
+    .slider-track img { width: 100%; height: 100%; min-width: 100%; max-width: 100%; object-fit: cover; flex-shrink: 0; flex-grow: 0; display: block; }
+    .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.4); color: white; border: none; width: 40px; height: 40px; font-size: 1.5rem; cursor: pointer; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 10; }
+    .slider-btn:hover { background: rgba(201,168,76,0.8); }
+    .slider-btn.prev { left: 0.75rem; }
+    .slider-btn.next { right: 0.75rem; }
+    .slider-dots { position: absolute; bottom: 0.75rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.4rem; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.2s; }
+    .dot.active { background: var(--gold); }
+    .about-pull { position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--gold); color: var(--navy); padding: 1.25rem 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; max-width: 200px; line-height: 1.4; border-radius: 2px; }
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
+    .pillar { padding: 1.25rem; background: var(--cream); border-left: 3px solid var(--gold); }
+    .pillar-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+    .pillar p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      margin-top: 3rem;
-    }
-
-    .about-image-block {
-      position: relative;
-    }
-
-    .about-image-placeholder {
-      width: 100%;
-      aspect-ratio: 4/3;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-      border-radius: 2px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.4);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      gap: 0.5rem;
-    }
-
-    .about-image-placeholder .cross-big {
-      font-size: 3rem;
-      color: var(--gold);
-      opacity: 0.5;
-    }
-
-    .about-pull {
-      position: absolute;
-      bottom: -1.5rem;
-      right: -1.5rem;
-      background: var(--gold);
-      color: var(--navy);
-      padding: 1.25rem 1.5rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1rem;
-      font-weight: 600;
-      max-width: 200px;
-      line-height: 1.4;
-      border-radius: 2px;
-    }
-
-    .pillars {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    .pillar {
-      padding: 1.25rem;
-      background: var(--cream);
-      border-left: 3px solid var(--gold);
-    }
-
-    .pillar-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 0.4rem;
-    }
-
-    .pillar p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* ── MASS SCHEDULE ── */
+    /* MASS */
     #mass { background: var(--navy); }
-
     #mass .section-title { color: white; }
     #mass .section-sub { color: rgba(255,255,255,0.55); }
-
-    .mass-cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .mass-card {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(201,168,76,0.25);
-      padding: 2rem;
-      border-radius: 2px;
-      transition: background 0.2s;
-    }
-
+    .mass-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .mass-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.25); padding: 2rem; border-radius: 2px; transition: background 0.2s; }
     .mass-card:hover { background: rgba(255,255,255,0.1); }
+    .mass-card-day { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .mass-card-time { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: white; line-height: 1; margin-bottom: 0.75rem; }
+    .mass-card-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+    .mass-card-location { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; color: rgba(255,255,255,0.4); }
 
-    .mass-card-day {
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.5rem;
-    }
-
-    .mass-card-time {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: white;
-      line-height: 1;
-      margin-bottom: 0.75rem;
-    }
-
-    .mass-card-desc {
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.6;
-    }
-
-    .mass-card-location {
-      margin-top: 1.25rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.4);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.4rem;
-    }
-
-    /* ── ACTIVITIES ── */
+    /* ACTIVITIES */
     #activities { background: var(--cream); }
+    .activities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .activity-card { background: var(--warm-white); border: 1px solid var(--border); padding: 1.75rem; border-radius: 2px; }
+    .activity-icon { font-size: 1.75rem; margin-bottom: 1rem; }
+    .activity-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+    .activity-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.65; }
 
-    .activities-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
+    /* QUOTE */
+    .quote-band { background: var(--gold); padding: 3.5rem 2rem; text-align: center; }
+    .quote-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.3rem, 2.5vw, 2rem); font-style: italic; font-weight: 300; color: var(--navy); max-width: 700px; margin: 0 auto; line-height: 1.5; }
+    .quote-attr { margin-top: 1rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy-mid); opacity: 0.7; }
 
-    .activity-card {
-      background: var(--warm-white);
-      border: 1px solid var(--border);
-      padding: 1.75rem;
-      border-radius: 2px;
-    }
+    /* CONNECT */
+    #connect { background: var(--warm-white); }
+    .connect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-top: 3rem; }
+    .info-block { margin-bottom: 1.5rem; }
+    .info-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
+    .info-value { font-size: 0.95rem; color: var(--text); line-height: 1.5; }
+    .info-value a { color: var(--navy); text-decoration: none; border-bottom: 1px solid var(--gold); }
+    .join-card { background: var(--navy); padding: 2.5rem; border-radius: 2px; }
+    .join-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: white; margin-bottom: 1rem; }
+    .join-card p { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 1.75rem; line-height: 1.7; }
+    .contact-form { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
+    .contact-form input, .contact-form textarea { width: 100%; padding: 0.65rem 1rem; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.07); color: white; font-family: 'Inter', sans-serif; font-size: 0.85rem; border-radius: 2px; outline: none; resize: vertical; }
+    .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .contact-form input:focus, .contact-form textarea:focus { border-color: var(--gold); }
 
-    .activity-icon {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
-    }
+    /* DIOCESE BAR */
+    .diocese-bar { background: var(--cream); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: center; gap: 1rem; font-size: 0.82rem; color: var(--text-muted); letter-spacing: 0.04em; }
+    .diocese-bar a { color: var(--navy); font-weight: 500; text-decoration: none; border-bottom: 1px solid var(--gold); }
 
-    .activity-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 0.5rem;
-    }
+    /* FOOTER */
+    footer { background: var(--navy); padding: 3rem 2rem 1.5rem; color: rgba(255,255,255,0.5); }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; max-width: 1100px; margin: 0 auto; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: white; margin-bottom: 0.75rem; }
+    .footer-brand span { color: var(--gold); }
+    .footer-desc { font-size: 0.82rem; line-height: 1.7; color: rgba(255,255,255,0.4); }
+    .footer-col h4 { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.5rem; }
+    .footer-col a { font-size: 0.83rem; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-col a:hover { color: white; }
+    .footer-bottom { max-width: 1100px; margin: 1.25rem auto 0; display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: rgba(255,255,255,0.25); }
 
-    .activity-desc {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    /* ── BISHOP FLIP CARD ── */
-
+    /* BISHOP FLIP CARD POPUP */
     .bishop-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.75);
+      background: rgba(0,0,0,0.78);
       z-index: 999;
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.4s ease;
     }
+    .bishop-overlay.active { opacity: 1; pointer-events: all; }
+    .bishop-popup { position: relative; width: 360px; height: 500px; }
+    .bishop-close { position: absolute; top: -1rem; right: -1rem; z-index: 10; background: var(--gold); color: var(--navy); border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 0.9rem; cursor: pointer; font-weight: 700; }
+    .flip-card { width: 100%; height: 100%; perspective: 1000px; cursor: pointer; }
+    .flip-card-inner { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.7s ease; border-radius: 4px; }
+    .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+    .flip-card-front, .flip-card-back { position: absolute; inset: 0; border-radius: 4px; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; }
+    .flip-card-front { background: var(--navy); border: 2px solid var(--gold); }
+    .flip-card-back { background: var(--cream); border: 2px solid var(--gold); transform: rotateY(180deg); padding: 2.5rem; }
+    .bishop-photo-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.75rem; flex: 1; }
+    .bishop-cross { font-size: 3.5rem; color: var(--gold); opacity: 0.6; }
+    .bishop-label { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: rgba(255,255,255,0.7); }
+    .bishop-sublabel { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+    .flip-hint { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); padding: 1rem; }
+    .flip-card-back .flip-hint { color: var(--text-muted); }
+    .bishop-passage { text-align: center; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; }
+    .passage-eyebrow { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+    .passage-text { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-style: italic; color: var(--navy); line-height: 1.7; }
+    .passage-attr { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; color: var(--text-muted); }
 
-    .bishop-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .bishop-popup {
-      position: relative;
-      width: 380px;
-      height: 520px;
-    }
-
-    .bishop-close {
-      position: absolute;
-      top: -1rem;
-      right: -1rem;
-      z-index: 10;
-      background: var(--gold);
-      color: var(--navy);
-      border: none;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      font-size: 0.9rem;
-      cursor: pointer;
-      font-weight: 700;
-    }
-
-    .flip-card {
-      width: 100%;
-      height: 100%;
-      perspective: 1000px;
-      cursor: pointer;
-    }
-
-    .flip-card-inner {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.7s ease;
-      border-radius: 4px;
-    }
-
-    .flip-card.flipped .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .flip-card-front,
-    .flip-card-back {
-      position: absolute;
-      inset: 0;
-      border-radius: 4px;
-      backface-visibility: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .flip-card-front {
-      background: var(--navy);
-      border: 2px solid var(--gold);
-    }
-
-    .flip-card-back {
-      background: var(--cream);
-      border: 2px solid var(--gold);
-      transform: rotateY(180deg);
-      padding: 2.5rem;
-    }
-
-    .bishop-photo-placeholder {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-      flex: 1;
-    }
-
-    .bishop-cross {
-      font-size: 3.5rem;
-      color: var(--gold);
-      opacity: 0.6;
-    }
-
-    .bishop-label {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.7);
-    }
-
-    .bishop-sublabel {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.3);
-    }
-
-    .flip-hint {
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-      padding: 1rem;
-    }
-
-    .flip-card-back .flip-hint {
-      color: var(--text-muted);
-    }
-
-    .bishop-passage {
-      text-align: center;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .passage-eyebrow {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .passage-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      font-style: italic;
-      color: var(--navy);
-      line-height: 1.7;
-    }
-
-    .passage-attr {
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-    }
-
-    /* ── QUOTE ── */
-    .quote-band {
-      background: var(--gold);
-      padding: 3.5rem 2rem;
-      text-align: center;
-    }
-
-    .quote-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.3rem, 2.5vw, 2rem);
-      font-style: italic;
-      font-weight: 300;
-      color: var(--navy);
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.5;
-    }
-
-    .quote-attr {
-      margin-top: 1rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--navy-mid);
-      opacity: 0.7;
-    }
-
-    /* ── CONNECT ── */
-    #connect { background: var(--warm-white); }
-
-    .connect-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-top: 3rem;
-    }
-
-    .info-block { margin-bottom: 1.5rem; }
-
-    .info-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.35rem;
-    }
-
-    .info-value {
-      font-size: 0.95rem;
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    .info-value a {
-      color: var(--navy);
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold);
-    }
-
-    .join-card {
-      background: var(--navy);
-      padding: 2.5rem;
-      border-radius: 2px;
-    }
-
-    .join-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 400;
-      color: white;
-      margin-bottom: 1rem;
-    }
-
-    .join-card p {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.6);
-      margin-bottom: 1.75rem;
-      line-height: 1.7;
-    }
-
-    .newsletter-row {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 0.75rem;
-    }
-
-    .newsletter-row input {
-      flex: 1;
-      padding: 0.6rem 1rem;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.07);
-      color: white;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      border-radius: 2px;
-      outline: none;
-    }
-
-    .newsletter-row input::placeholder { color: rgba(255,255,255,0.3); }
-
-    .newsletter-row input:focus { border-color: var(--gold); }
-
-    /* ── DIOCESE BAR ── */
-    .diocese-bar {
-      background: var(--cream);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 1.5rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-
-    .diocese-bar a {
-      color: var(--navy);
-      font-weight: 500;
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy);
-      padding: 3rem 2rem 1.5rem;
-      color: rgba(255,255,255,0.5);
-    }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 3rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: white;
-      margin-bottom: 0.75rem;
-    }
-
-    .footer-brand span { color: var(--gold); }
-
-    .footer-desc {
-      font-size: 0.82rem;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.4);
-    }
-
-    .footer-col h4 {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-
-    .footer-col ul { list-style: none; }
-
-    .footer-col li { margin-bottom: 0.5rem; }
-
-    .footer-col a {
-      font-size: 0.83rem;
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-col a:hover { color: white; }
-
-    .footer-bottom {
-      max-width: 1100px;
-      margin: 1.25rem auto 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.25);
-    }
-
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .hero-layout { grid-template-columns: 1fr; position: relative; min-height: 88vh; }
+      .hero-side-img { display: none; }
+      .hero-center { min-height: 88vh; }
       .about-grid, .connect-grid { grid-template-columns: 1fr; }
       .about-pull { display: none; }
       .mass-cards, .activities-grid { grid-template-columns: 1fr; }
       .pillars { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .bishop-popup { width: 300px; height: 440px; }
     }
   </style>
 </head>
 <body>
+
+<!-- BISHOP FLIP CARD POPUP -->
+<div id="bishop-overlay" class="bishop-overlay active" onclick="closeBishopCard(event)">
+  <div class="bishop-popup">
+    <button class="bishop-close" onclick="closeBishopCard()">✕</button>
+    <div class="flip-card" id="flipCard" onclick="flipCard()">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div class="bishop-photo-placeholder">
+            <span class="bishop-cross">✝</span>
+            <span class="bishop-label">Photo de l'évêque</span>
+            <span class="bishop-sublabel">(à ajouter)</span>
+          </div>
+          <div class="flip-hint">Cliquez pour retourner</div>
+        </div>
+        <div class="flip-card-back">
+          <div class="bishop-passage">
+            <p class="passage-eyebrow">Message de l'évêque</p>
+            <p class="passage-text">
+              « Le passage ou la citation de l'évêque sera placé ici. »
+            </p>
+            <p class="passage-attr">— Nom de l'évêque</p>
+          </div>
+          <div class="flip-hint">Cliquez pour retourner</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -899,52 +302,41 @@
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">Denver, Colorado · Archidiocèse de Denver</p>
-  <h1>Une Communauté Catholique Charismatique<br /><em>francophone</em> au Colorado</h1>
-
-  <!-- SIGNATURE ELEMENT: flip tagline -->
-  <div class="hero-tagline-wrap" title="Hover to translate">
-    <div class="hero-tagline">
-      <div class="front">
-        <span>Foi</span><span>Famille</span><span>Communauté</span>
+  <div class="hero-layout">
+    <div class="hero-side-img">
+      <img src="assets/images/church.jpeg" alt="Notre Dame" />
+    </div>
+    <div class="hero-center">
+      <p class="hero-eyebrow">Denver, Colorado · Archidiocèse de Denver</p>
+      <h1>Une Communauté Catholique Charismatique<br /><em>francophone</em> au Colorado</h1>
+      <div class="hero-tagline-wrap" title="Hover to translate">
+        <div class="hero-tagline">
+          <div class="front"><span>Foi</span><span>Famille</span><span>Communauté</span></div>
+          <div class="back"><span>Faith</span><span>Family</span><span>Community</span></div>
+        </div>
       </div>
-      <div class="back">
-        <span>Faith</span><span>Family</span><span>Community</span>
+      <p class="hero-desc">
+        Communauté Catholique Charismatique Francophone du Colorado (CCCFC) est un espace de foi et d'appartenance
+        pour les catholiques francophones de la région de Denver — expatriés, immigrants, et amis de la langue française.
+      </p>
+      <div class="hero-actions">
+        <a href="#mass" class="btn-primary">Horaires des messes</a>
+        <a href="#connect" class="btn-outline">Nous rejoindre</a>
       </div>
+      <div class="hero-scroll">Défiler</div>
+    </div>
+    <div class="hero-side-img">
+      <img src="assets/images/insideChurch.jpg" alt="Intérieur de l'église" />
     </div>
   </div>
-
-  <p class="hero-desc">
-    Communauté Catholique Charismatique Francophone du Colorado (CCCFC) est un espace de foi et d'appartenance
-    pour les catholiques francophones de la région de Denver — expatriés, immigrants, et amis de la langue française.
-  </p>
-
-  <div class="hero-actions">
-    <a href="#mass" class="btn-primary">Horaires des messes</a>
-    <a href="#connect" class="btn-outline">Nous rejoindre</a>
-  </div>
-
-  <div class="hero-scroll">Défiler</div>
 </section>
 
 <!-- STATS BAR -->
 <div class="stats-bar">
-  <div class="stat">
-    <span class="stat-num">Dimanche.</span>
-    <span class="stat-label">Messe Hebdomadaire</span>
-  </div>
-  <div class="stat">
-    <span class="stat-num">14h00</span>
-    <span class="stat-label">Heure de la messe</span>
-  </div>
-  <div class="stat">
-    <span class="stat-num">Our Lady of<br/>FATIMA</span>
-    <span class="stat-label">Église principale</span>
-  </div>
-  <div class="stat">
-    <span class="stat-num">CO</span>
-    <span class="stat-label">Toute la communauté Francophone</span>
-  </div>
+  <div class="stat"><span class="stat-num">Dimanche.</span><span class="stat-label">Messe Hebdomadaire</span></div>
+  <div class="stat"><span class="stat-num">14h00</span><span class="stat-label">Heure de la messe</span></div>
+  <div class="stat"><span class="stat-num">Our Lady of<br/>FATIMA</span><span class="stat-label">Église principale</span></div>
+  <div class="stat"><span class="stat-num">CO</span><span class="stat-label">Toute la communauté Francophone</span></div>
 </div>
 
 <!-- ABOUT -->
@@ -952,10 +344,23 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-image-block">
-        <div class="about-image-placeholder">
-          <span class="cross-big">✝</span>
-          <span>Photo de communauté</span>
-          <span style="font-size:0.7rem; opacity:0.5;"><img src="cccf-images/your-photo.jpg" /></span>
+        <div class="slider">
+          <div class="slider-track">
+            <img src="assets/images/cccf-images/IMG_1481.JPG" alt="Communauté CCCFC" />
+            <img src="assets/images/cccf-images/IMG_1514.JPG" alt="Communauté CCCFC" />
+            <img src="assets/images/cccf-images/IMG_1515.JPG" alt="Communauté CCCFC" />
+            <img src="assets/images/cccf-images/IMG_1517.JPG" alt="Communauté CCCFC" />
+            <img src="assets/images/cccf-images/IMG_1553.JPG" alt="Communauté CCCFC" />
+          </div>
+          <button class="slider-btn prev" onclick="moveSlide(-1)">&#8249;</button>
+          <button class="slider-btn next" onclick="moveSlide(1)">&#8250;</button>
+          <div class="slider-dots">
+            <span class="dot active" onclick="goToSlide(0)"></span>
+            <span class="dot" onclick="goToSlide(1)"></span>
+            <span class="dot" onclick="goToSlide(2)"></span>
+            <span class="dot" onclick="goToSlide(3)"></span>
+            <span class="dot" onclick="goToSlide(4)"></span>
+          </div>
         </div>
         <div class="about-pull">
           « Venez célébrer<br />avec nous chaque Premier Dimanche du Mois »
@@ -971,22 +376,10 @@
           Nous célébrons la messe, partageons notre foi, et maintenons vivantes nos traditions culturelles.
         </p>
         <div class="pillars">
-          <div class="pillar">
-            <div class="pillar-title">✝ Foi</div>
-            <p>Messes célébrées en français dans la tradition catholique, chaque Premier dimanche du Mois.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-title">🤝 Accueil</div>
-            <p>Un espace chaleureux pour les nouveaux arrivants dans la Sainte Famille francophones.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-title">📚 Éducation</div>
-            <p>Formation religieuse et catéchèse pour enfants et adultes.</p>
-          </div>
-          <div class="pillar">
-            <div class="pillar-title">🌍 Culture</div>
-            <p>Préserver et partager la culture fronco-Africaine et de la langue française dans notre foi du Christ.</p>
-          </div>
+          <div class="pillar"><div class="pillar-title">✝ Foi</div><p>Messes célébrées en français dans la tradition catholique, chaque Premier dimanche du Mois.</p></div>
+          <div class="pillar"><div class="pillar-title">🤝 Accueil</div><p>Un espace chaleureux pour les nouveaux arrivants dans la Sainte Famille francophones.</p></div>
+          <div class="pillar"><div class="pillar-title">📚 Éducation</div><p>Formation religieuse et catéchèse pour enfants et adultes.</p></div>
+          <div class="pillar"><div class="pillar-title">🌍 Culture</div><p>Préserver et partager la culture fronco-Africaine et de la langue française dans notre foi du Christ.</p></div>
         </div>
       </div>
     </div>
@@ -998,39 +391,25 @@
   <div class="container">
     <p class="section-eyebrow" style="color:var(--gold-light)">Horaires</p>
     <h2 class="section-title">Venez prier avec nous</h2>
-    <p class="section-sub">
-      Nos messes et rassemblements (Prieres en Line) se tiennent chaque semaine. Vous etes tous sont la bienvenues.
-    </p>
+    <p class="section-sub">Nos messes et rassemblements (Prieres en Line) se tiennent chaque semaine. Vous etes tous sont la bienvenues.</p>
     <div class="mass-cards">
       <div class="mass-card">
         <div class="mass-card-day">Premier Dimanche de Chaque Mois</div>
         <div class="mass-card-time">14h00</div>
-        <div class="mass-card-desc">
-          Messe dominicale en français. Ouverte à tous les catholiques francophones et leurs familles.
-        </div>
-        <div class="mass-card-location">
-          📍 Our Lady of Fatima Catholic Church, 1985 Miller St, Lakewood, CO 80215
-        </div>
+        <div class="mass-card-desc">Messe dominicale en français. Ouverte à tous les catholiques francophones et leurs familles.</div>
+        <div class="mass-card-location">📍 Our Lady of Fatima Catholic Church, 1985 Miller St, Lakewood, CO 80215</div>
       </div>
       <div class="mass-card">
         <div class="mass-card-day">Rassemblements</div>
         <div class="mass-card-time">Réguliers</div>
-        <div class="mass-card-desc">
-          Rencontres communautaires, partage de repas, et événements culturels tout au long de l'année.
-        </div>
-        <div class="mass-card-location">
-          📍 Lieux variés — voir le calendrier
-        </div>
+        <div class="mass-card-desc">Rencontres communautaires, partage de repas, et événements culturels tout au long de l'année.</div>
+        <div class="mass-card-location">📍 Lieux variés — voir le calendrier</div>
       </div>
       <div class="mass-card">
         <div class="mass-card-day">Fêtes & Solennités</div>
         <div class="mass-card-time">Calendrier</div>
-        <div class="mass-card-desc">
-          Célébrations spéciales pour Noël, Pâques, l'Assomption, et autres fêtes liturgiques importantes.
-        </div>
-        <div class="mass-card-location">
-          📅 Consultez notre calendrier
-        </div>
+        <div class="mass-card-desc">Célébrations spéciales pour Noël, Pâques, l'Assomption, et autres fêtes liturgiques importantes.</div>
+        <div class="mass-card-location">📅 Consultez notre calendrier</div>
       </div>
     </div>
   </div>
@@ -1042,98 +421,21 @@
     <p class="section-eyebrow">Vie communautaire</p>
     <h2 class="section-title">Plus que la messe du dimanche</h2>
     <div class="divider"></div>
-    <p class="section-sub">
-      La CCCFC est une communauté vivante qui se retrouve au-delà du dimanche.
-    </p>
+    <p class="section-sub">La CCCFC est une communauté vivante qui se retrouve au-delà du dimanche.</p>
     <div class="activities-grid">
-      <div class="activity-card">
-        <div class="activity-icon">🙏</div>
-        <div class="activity-title">Soutien spirituel</div>
-        <p class="activity-desc">
-          Accompagnement pastoral pour les familles, les malades, et les personnes en deuil.
-          La foi partagée en français, dans votre langue.
-        </p>
-      </div>
-      <div class="activity-card">
-        <div class="activity-icon">👨‍👩‍👧‍👦</div>
-        <div class="activity-title">Vie de famille</div>
-        <p class="activity-desc">
-          Activités pour les enfants, les jeunes, et les familles. Catéchèse, retraites,
-          et sorties communautaires.
-        </p>
-      </div>
-      <div class="activity-card">
-        <div class="activity-icon">🎉</div>
-        <div class="activity-title">Événements culturels</div>
-        <p class="activity-desc">
-          Repas partagés, célébrations de fêtes nationales, et rencontres sociales pour
-          les francophones du Colorado et d'ailleurs.
-        </p>
-      </div>
-      <div class="activity-card">
-        <div class="activity-icon">📖</div>
-        <div class="activity-title">Formation & Catéchèse</div>
-        <p class="activity-desc">
-          Enseignement de la foi catholique en français pour enfants et adultes.
-          Première communion, confirmation, parcours d'adultes, Baptemes et Marriages.
-        </p>
-      </div>
-      <div class="activity-card">
-        <div class="activity-icon">🤲</div>
-        <div class="activity-title">Accompagnement/Guides aux nouveaux arrivants</div>
-        <p class="activity-desc">
-          Accueil des expatriés et immigrants francophones. Orientation, entraide,
-          et intégration dans la vie catholique du Colorado.
-        </p>
-      </div>
-      <div class="activity-card">
-        <div class="activity-icon">📣</div>
-        <div class="activity-title">Réseau francophone</div>
-        <p class="activity-desc">
-          Connexions avec d'autres communautés francophones et organisations catholiques
-          à Denver et dans tout le Colorado.
-        </p>
-      </div>
+      <div class="activity-card"><div class="activity-icon">🙏</div><div class="activity-title">Soutien spirituel</div><p class="activity-desc">Accompagnement pastoral pour les familles, les malades, et les personnes en deuil. La foi partagée en français, dans votre langue.</p></div>
+      <div class="activity-card"><div class="activity-icon">👨‍👩‍👧‍👦</div><div class="activity-title">Vie de famille</div><p class="activity-desc">Activités pour les enfants, les jeunes, et les familles. Catéchèse, retraites, et sorties communautaires.</p></div>
+      <div class="activity-card"><div class="activity-icon">🎉</div><div class="activity-title">Événements culturels</div><p class="activity-desc">Repas partagés, célébrations de fêtes nationales, et rencontres sociales pour les francophones du Colorado et d'ailleurs.</p></div>
+      <div class="activity-card"><div class="activity-icon">📖</div><div class="activity-title">Formation & Catéchèse</div><p class="activity-desc">Enseignement de la foi catholique en français pour enfants et adultes. Première communion, confirmation, parcours d'adultes, Baptemes et Marriages.</p></div>
+      <div class="activity-card"><div class="activity-icon">🤲</div><div class="activity-title">Accompagnement/Guides aux nouveaux arrivants</div><p class="activity-desc">Accueil des expatriés et immigrants francophones. Orientation, entraide, et intégration dans la vie catholique du Colorado.</p></div>
+      <div class="activity-card"><div class="activity-icon">📣</div><div class="activity-title">Réseau francophone</div><p class="activity-desc">Connexions avec d'autres communautés francophones et organisations catholiques à Denver et dans tout le Colorado.</p></div>
     </div>
   </div>
 </section>
 
-<!-- BISHOP FLIP CARD POPUP -->
-<div id="bishop-overlay" class="bishop-overlay active" onclick="closeBishopCard(event)">
-  <div class="bishop-popup">
-    <button class="bishop-close" onclick="closeBishopCard()">✕</button>
-    <div class="flip-card" id="flipCard" onclick="flipCard()">
-      <div class="flip-card-inner">
-        <!-- FRONT: Bishop photo -->
-        <div class="flip-card-front">
-          <div class="bishop-photo-placeholder">
-            <span class="bishop-cross">✝</span>
-            <span class="bishop-label">Photo de l'évêque</span>
-            <span class="bishop-sublabel">(à ajouter)</span>
-          </div>
-          <div class="flip-hint">Cliquez pour retourner</div>
-        </div>
-        <!-- BACK: Passage -->
-        <div class="flip-card-back">
-          <div class="bishop-passage">
-            <p class="passage-eyebrow">Message de l'évêque</p>
-            <p class="passage-text">
-              « Le passage ou la citation de l'évêque sera placé ici. Remplacez ce texte par le message que vous souhaitez partager avec la communauté. »
-            </p>
-            <p class="passage-attr">— Nom de l'évêque</p>
-          </div>
-          <div class="flip-hint">Cliquez pour retourner</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- QUOTE BAND -->
 <div class="quote-band">
-  <p class="quote-text">
-    « Là où deux ou trois sont réunis en mon nom, je suis au milieu d'eux. »
-  </p>
+  <p class="quote-text">« Là où deux ou trois sont réunis en mon nom, je suis au milieu d'eux. »</p>
   <p class="quote-attr">— Matthieu 18:20</p>
 </div>
 
@@ -1154,45 +456,21 @@
     <div class="divider"></div>
     <div class="connect-grid">
       <div>
-        <div class="info-block">
-          <div class="info-label">Lieu principal</div>
-          <div class="info-value">Our Lady of Fatima Catholic Church<br />Lakewood, Colorado</div>
-        </div>
-        <div class="info-block">
-          <div class="info-label">Messe dominicale</div>
-          <div class="info-value">Premier Dimanche du chaque Mois à partir de 14h00 MTD</div>
-        </div>
-        <div class="info-block">
-          <div class="info-label">Langue</div>
-          <div class="info-value">Français (Tout les nouveau bienvenue)</div>
-        </div>
-        <div class="info-block">
-          <div class="info-label">Email</div>
-          <div class="info-value"><a href="mailto:contact@cccfcolorado.org">contact@cccfcolorado.org</a></div>
-        </div>
-        <div class="info-block">
-          <div class="info-label">Réseaux sociaux</div>
-          <div class="info-value">
-            <a href="#">Facebook</a> · <a href="#">Instagram</a> . <a href="#">Tiktok</a>
-          </div>
-        </div>
+        <div class="info-block"><div class="info-label">Lieu principal</div><div class="info-value">Our Lady of Fatima Catholic Church<br />Lakewood, Colorado</div></div>
+        <div class="info-block"><div class="info-label">Messe dominicale</div><div class="info-value">Premier Dimanche du chaque Mois à partir de 14h00 MTD</div></div>
+        <div class="info-block"><div class="info-label">Langue</div><div class="info-value">Français (Tout les nouveau bienvenue)</div></div>
+        <div class="info-block"><div class="info-label">Email</div><div class="info-value"><a href="mailto:contact@cccfcolorado.org">contact@cccfcolorado.org</a></div></div>
+        <div class="info-block"><div class="info-label">Réseaux sociaux</div><div class="info-value"><a href="#">Facebook</a> · <a href="#">Instagram</a> · <a href="#">Tiktok</a></div></div>
       </div>
       <div>
         <div class="join-card">
-          <h3>Rejoindre notre communauté</h3>
-          <p>
-            Que vous soyez de passage ou de passage dans l'etat du Colorado, vous êtes les bienvenus
-            à chaque messe. Inscrivez-vous pour recevoir nos actualités et invitations.
-          </p>
-          <div>
-            <div class="info-label" style="color: var(--gold-light); font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:0.4rem;">Restez informé(e)</div>
-            <div class="newsletter-row">
-              <input type="email" placeholder="Votre adresse email" />
-              <a href="#" class="btn-primary" style="white-space:nowrap;">S'inscrire</a>
-            </div>
-            <p style="font-size:0.72rem; color:rgba(255,255,255,0.3); margin-top:0.6rem;">
-              Pas de spam. Désabonnement à tout moment.
-            </p>
+          <h3>Nous contacter</h3>
+          <p>Vous avez une question ou souhaitez en savoir plus ? Envoyez-nous un message et nous vous répondrons dans les plus brefs délais.</p>
+          <div class="contact-form">
+            <input type="text" id="contact-name" placeholder="Votre nom" />
+            <input type="email" id="contact-email" placeholder="Votre adresse email" />
+            <textarea id="contact-message" placeholder="Votre message..." rows="4"></textarea>
+            <button class="btn-primary" style="width:100%; margin-top:0.5rem;" onclick="sendEmail()">Envoyer le message</button>
           </div>
         </div>
       </div>
@@ -1205,11 +483,7 @@
   <div class="footer-top">
     <div>
       <div class="footer-brand">✝ <span>CCCF</span> Colorado</div>
-      <p class="footer-desc">
-                  La CCCFC accueille les catholiques francophones du Colorado — qu'ils soient
-                  du Colorado ou d'ailleurs — un foyer spirituel
-        pour les catholiques francophones de la région de Denver et de tout le Colorado.
-      </p>
+      <p class="footer-desc">La CCCFC accueille les catholiques francophones du Colorado — qu'ils soient du Colorado ou d'ailleurs — un foyer spirituel pour les catholiques francophones de la région de Denver et de tout le Colorado.</p>
     </div>
     <div class="footer-col">
       <h4>Navigation</h4>
@@ -1237,34 +511,21 @@
 </footer>
 
 <script>
-  // ── SLIDER ──
+  // SLIDER
   let current = 0;
   const total = 5;
-
   function updateSlider() {
     const sliderWidth = document.querySelector('.slider').offsetWidth;
     document.querySelector('.slider-track').style.transform = `translateX(-${current * sliderWidth}px)`;
     document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
   }
-
-  function moveSlide(dir) {
-    current = (current + dir + total) % total;
-    updateSlider();
-  }
-
-  function goToSlide(n) {
-    current = n;
-    updateSlider();
-  }
-
+  function moveSlide(dir) { current = (current + dir + total) % total; updateSlider(); }
+  function goToSlide(n) { current = n; updateSlider(); }
   setInterval(() => moveSlide(1), 4000);
   window.addEventListener('resize', updateSlider);
 
-  // ── BISHOP FLIP CARD ──
-  function flipCard() {
-    document.getElementById('flipCard').classList.toggle('flipped');
-  }
-
+  // BISHOP FLIP CARD
+  function flipCard() { document.getElementById('flipCard').classList.toggle('flipped'); }
   function closeBishopCard(event) {
     if (!event || event.target === document.getElementById('bishop-overlay')) {
       document.getElementById('bishop-overlay').classList.remove('active');
@@ -1272,17 +533,12 @@
     }
   }
 
-  // ── CONTACT FORM ──
+  // CONTACT FORM
   function sendEmail() {
     const name = document.getElementById('contact-name').value.trim();
     const email = document.getElementById('contact-email').value.trim();
     const message = document.getElementById('contact-message').value.trim();
-
-    if (!name || !email || !message) {
-      alert('Veuillez remplir tous les champs.');
-      return;
-    }
-
+    if (!name || !email || !message) { alert('Veuillez remplir tous les champs.'); return; }
     const subject = encodeURIComponent(`Message de ${name} via le site CCCFC`);
     const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
     window.location.href = `mailto:contact@cccfcolorado.org?subject=${subject}&body=${body}`;
